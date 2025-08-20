@@ -46,16 +46,7 @@
     }
   </style>
 </head>
-  <section style="padding: 40px; text-align: center;">
-  <h2 style="font-family: 'Playfair Display', serif;">Our Kurtas</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
-    <img src="kurta1.jpeg" alt="Kurta 1" style="width: 200px; border-radius: 8px;">
-    <img src="kurta2.jpeg" alt="Kurta 2" style="width: 200px; border-radius: 8px;">
-    <img src="kurta3.jpeg" alt="Kurta 3" style="width: 200px; border-radius: 8px;">
-
-  </div>
-</section>
-
+  
 <body>
   <header>
     <h1>Edmonton Kurtahouse</h1>
@@ -65,7 +56,54 @@
       <a href="#">Schedule a Pickup</a>
     </div>
   </header>
+
+<section style="padding: 40px; text-align: center;">
+  <h2 style="font-family: 'Playfair Display', serif;">Our Kurtas</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
+    <img src="kurta1.jpeg" alt="Kurta 1" style="width: 200px; border-radius: 8px;">
+    <img src="kurta2.jpeg" alt="Kurta 2" style="width: 200px; border-radius: 8px;">
+    <img src="kurta3.jpeg" alt="Kurta 3" style="width: 200px; border-radius: 8px;">
+
+  </div>
+</section>
+
+
+  <section style="padding: 40px; max-width: 400px; margin: 40px auto; font-family: Arial, sans-serif;">
+  <h2>Schedule Your Pickup</h2>
+  <form id="scheduleForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 8px;"><br><br>
+    
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required style="width: 100%; padding: 8px;"><br><br>
+    
+    <label for="date">Pickup Date:</label><br>
+    <input type="date" id="date" name="date" required style="width: 100%; padding: 8px;"><br><br>
+    
+    <label for="time">Pickup Time:</label><br>
+    <input type="time" id="time" name="time" required style="width: 100%; padding: 8px;"><br><br>
+    
+    <button type="submit" style="padding: 10px 20px; background-color: #333; color: white; border: none;">Submit</button>
+  </form>
+  <p id="responseMessage" style="color: green; margin-top: 15px;"></p>
+</section>
+
+  <script>
+  const form = document.getElementById('scheduleForm');
+  const responseMessage = document.getElementById('responseMessage');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent page reload
+    
+    // Simple validation passed, show confirmation message
+    responseMessage.textContent = `Thanks, ${form.name.value}! Your pickup is scheduled for ${form.date.value} at ${form.time.value}. We will contact you at ${form.email.value}.`;
+    
+    form.reset();
+  });
+</script>
+
 </body>
 </html>
+
 
 
