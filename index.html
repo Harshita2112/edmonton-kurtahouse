@@ -89,21 +89,29 @@
 </section>
 
   <script>
-  const form = document.getElementById('scheduleForm');
-  const responseMessage = document.getElementById('responseMessage');
+const form = document.getElementById('scheduleForm');
+const responseMessage = document.getElementById('responseMessage');
 
-  form.addEventListener('submit', function(event) {
+form.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent page reload
-    
-    // Simple validation passed, show confirmation message
-    responseMessage.textContent = `Thanks, ${form.name.value}! Your pickup is scheduled for ${form.date.value} at ${form.time.value}. We will contact you at ${form.email.value}.`;
-    
-    form.reset();
-  });
+
+    // Get input values using form.elements
+    const name = form.elements['name'].value;
+    const email = form.elements['email'].value;
+    const date = form.elements['date'].value;
+    const time = form.elements['time'].value;
+
+    // Show confirmation message
+    responseMessage.textContent = `Thanks, ${name}! Your pickup is scheduled for ${date} at ${time}. We will contact you at ${email}.`;
+
+    form.reset(); // Reset the form fields
+});
 </script>
+
 
 </body>
 </html>
+
 
 
 
